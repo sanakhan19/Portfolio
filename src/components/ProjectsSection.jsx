@@ -1,34 +1,32 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
-const projects = [
+const designProjects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Social Media Kit",
+    description:
+      "A creative set of social media graphics designed for a product launch and brand awareness campaign.",
+    image: "/projects/Creatives_Poster.png", // Replace with your actual image
+    tags: ["Instagram", "Post Design", "Branding"],
+    driveUrl: "https://drive.google.com/drive/folders/1z5kOo3LCwb3625Ovvo8NIaugsABCE6VB?usp=sharing", // Replace with your Drive link
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Recipe Book",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "Designed a healthy cookbook published under Anemia Mukt Manav Rachna Initiative",
+    image: "/projects/Recipe_Book_Poster.jpg", // Replace with your actual image
+    tags: ["Book Design", "Article Design", "Print"],
+    driveUrl: "https://drive.google.com/file/d/1mWiLQlIiK5QThQD8OJFhqRrvNqjpWEDN/view",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Editorial Design Projects",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "Includes layouts and designs for the Karmayogi Magazine - blending strong typography, layout, and visual storytelling for print.",
+    image: "/projects/Karmayogi_Poster.png", // Replace with a combined or symbolic image
+    tags: ["Editorial", "Typography", "Print Design"],
+    driveUrl: "https://drive.google.com/drive/u/0/folders/1dAGkT6-gCDeSaxh0KUfvI-Vk3FaZH_w_",
   },
 ];
 
@@ -37,17 +35,15 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
-          Featured <span className="text-primary"> Projects </span>
+          Featured <span className="text-primary">Design Work</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+          A glimpse into some of my recent graphic design projects—crafted to combine creativity with clarity across print and digital platforms.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {designProjects.map((project, key) => (
             <div
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
@@ -62,48 +58,34 @@ export const ProjectsSection = () => {
 
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
+                <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
+                <div className="flex justify-start items-center">
+                  <a
+                    href={project.driveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={18} />
+                    <span className="text-sm">View Project</span>
+                  </a>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            target="_blank"
-            href="https://github.com/machadop1407"
-          >
-            Check My Github <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </section>
